@@ -13,7 +13,7 @@ var T = new Twit({
 });
 
 
-var TWEET_INTERVAL = 1000;
+var TWEET_INTERVAL = 1000*60*60;
 var today = new Date();
 var handler = new ApiHandler(today.getFullYear(), today.getMonth()+1, today.getDate());
 
