@@ -16,12 +16,29 @@ class ApiHandler{
 		return new Promise(function(resolve, reject) {
   			axios.get(`https://www.daysoftheyear.com/days/${d.getFullYear()}/${zeroPad(d.getMonth())}/${zeroPad(d.getDate())}`)
   			.then(response => {
-  				console.log("Got Response");
 				resolve(scraper(response.data));
 				})
 			.catch(error => {
-				console.log("Got Error");
 				reject(error);
+				})
+			});
+	}
+
+	getImages(searchQuery) {
+		return new Promise(function(resolve, reject) {
+  			axios.get(`https://www.googleapis.com/customsearch/v1?`+
+  				`key=` + process.env.BOT_GOOGLE_API_KEY +
+  				`&cx=007533542712610196124:8yk-ubuz0vs`+
+  				`&q=${searchQuery}`+
+  				`&num=5`+
+  				`&searchType=image`+
+  				`&imgSize=xxlarge`+
+  				'&imgType=photo')
+  			.then(response => {
+				resolve(response.data.items);
+				})
+			.catch(error => {
+				reject(error)
 				})
 			});
 	}
@@ -35,8 +52,10 @@ class ApiHandler{
 		return data;
 	}
 
+
+
 	zeroPad(num) {
-		return num > 10 ? num : "0" + num;
+		return num >= 10 ? num : "0" + num;
 	}
 
 
