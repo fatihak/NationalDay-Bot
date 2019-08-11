@@ -1,4 +1,4 @@
-const Twitter = require("Twitter");
+const Twitter = require("twitter");
 const axios = require('axios');
 const cheerio = require('cheerio');
 const ApiHandler = require('./apihandler.js');
@@ -12,7 +12,7 @@ const client = new Twitter({
   access_token_secret:  process.env.BOT_ACCESS_TOKEN_SECRET
 });
 
-const TWEET_INTERVAL = 1000*60*60;
+const TWEET_INTERVAL = 1000*5*60;
 var today = new Date();
 today.setDate(today.getDate());
 

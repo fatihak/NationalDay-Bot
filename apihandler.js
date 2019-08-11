@@ -27,7 +27,7 @@ class ApiHandler{
 	getImages(searchQuery) {
 		return new Promise(function(resolve, reject) {
   			axios.get(`https://www.googleapis.com/customsearch/v1?`+
-  				`key=` + process.env.BOT_GOOGLE_API_KEY +
+  				`key=`+ process.env.BOT_GOOGLE_API_KEY +
   				`&cx=007533542712610196124:8yk-ubuz0vs`+
   				`&q=${searchQuery}`+
   				`&num=5`+
