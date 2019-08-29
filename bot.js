@@ -6,13 +6,13 @@ var request = require('request');
 var fs = require('fs');
 
 const client = new Twitter({
-  consumer_key:         process.env.BOT_CONSUMER_KEY,
-  consumer_secret:      process.env.BOT_CONSUMER_SECRET,
-  access_token_key:     process.env.BOT_ACCESS_TOKEN,
-  access_token_secret:  process.env.BOT_ACCESS_TOKEN_SECRET
-});
+  consumer_key:         '8XcTKC9wi5ujKhPbE2Zi8ZYy8',
+  consumer_secret:      '6yoWM1r14aZgUT1dz3mZOVMjhO389awTU2MUJOR2FQ12y85YoF',
+  access_token_key:     '1027708022456545280-I19BiOrv3LORs78zSqNoGVj7T32OMY',
+  access_token_secret:  'VTWPRfPHcyNPaGQQJriYJquCXjTUqB3dkaIwY3art9urH'
+}); 
 
-const TWEET_INTERVAL = 1000*5*60;
+const TWEET_INTERVAL = 1000 //*60*60;
 var today = new Date();
 today.setDate(today.getDate());
 
