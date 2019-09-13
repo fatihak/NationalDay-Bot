@@ -1,5 +1,5 @@
 # Calendar-Bot
-A Twitter Bot that tweets daily about different holidays with a related image. Check it out at [@Calendar_exe](www.twitter.com/calendar_exe).
+A Twitter Bot that tweets daily about different holidays with a related image. Check it out at [@Calendar_exe](https://www.twitter.com/calendar_exe).
 
   * Written in Node.js
   * Used Axios & Cheerio to scrape holidays from www.daysoftheyear.com.
