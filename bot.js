@@ -12,7 +12,7 @@ const twitterClient = new Twitter({
 });
 
 // Tweet interval set to 1 hour
-const TWEET_INTERVAL = 1000;//1000*60*60;
+const TWEET_INTERVAL = 1000*60*60;
 
 // Initialize ApiHandler
 var today = new Date();
