@@ -12,7 +12,8 @@ class ApiHandler{
 
 	// Get holidays for today
 	getHolidays(){
-		const url = `${this.HOLIDAY_URL}/days/${this.date.getFullYear()}/${this.zeroPad(this.date.getMonth())}/${this.zeroPad(this.date.getDate())}`;
+		const url = `${this.HOLIDAY_URL}/days/${this.date.getFullYear()}/${this.zeroPad(this.date.getMonth()+1)}/${this.zeroPad(this.date.getDate())}`;
+		console.log(url);
 		const scraper = this.holidayScraper;
 		return new Promise(function(resolve, reject) {
   			axios.get(url)
@@ -24,7 +25,7 @@ class ApiHandler{
 	// Gets image link from Google Custom Search result for searchQuery
 	getImage(searchQuery) {
 		const url = `${this.GOOGLE_SEARCH_URL}/customsearch/v1?`+
-  				`key=`+ process.env.BOT_GOOGLE_API_KEY +
+  				`key=`+ 'AIzaSyA6pL48iY07TkLh0RvloFAHBkyvPP44q-w' + //process.env.BOT_GOOGLE_API_KEY +
   				`&cx=007533542712610196124:8yk-ubuz0vs`+
   				`&q=${searchQuery}`+
   				`&num=5`+

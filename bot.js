@@ -5,10 +5,10 @@ var fs = require('fs');
 
 // Set up Twitter credentials
 const twitterClient = new Twitter({
-  consumer_key:         "8XcTKC9wi5ujKhPbE2Zi8ZYy8",//process.env.BOT_CONSUMER_KEY,
-  consumer_secret:      "6yoWM1r14aZgUT1dz3mZOVMjhO389awTU2MUJOR2FQ12y85YoF",//process.env.BOT_CONSUMER_SECRET,
-  access_token_key:     "1027708022456545280-I19BiOrv3LORs78zSqNoGVj7T32OMY",//process.env.BOT_ACCESS_TOKEN,
-  access_token_secret:  "VTWPRfPHcyNPaGQQJriYJquCXjTUqB3dkaIwY3art9urH"//process.env.BOT_ACCESS_TOKEN_SECRET
+  consumer_key:         process.env.BOT_CONSUMER_KEY,
+  consumer_secret:      process.env.BOT_CONSUMER_SECRET,
+  access_token_key:     process.env.BOT_ACCESS_TOKEN,
+  access_token_secret:  process.env.BOT_ACCESS_TOKEN_SECRET
 });
 
 // Tweet interval set to 1 hour
@@ -16,8 +16,6 @@ const TWEET_INTERVAL = 1000;//1000*60*60;
 
 // Initialize ApiHandler
 var today = new Date();
-today.setDate(today.getDate());
-console.log(today.getFullYear());
 var apiHandler = new ApiHandler(today);
 
 apiHandler.getHolidays().then(function(result) {
@@ -38,7 +36,8 @@ apiHandler.getHolidays().then(function(result) {
 // Post holiday tweet with its related image
 function postTweet(holiday) { 
   // Get image for holiday
-	apiHandler.getImage(holiday.replace("Day", '')).then(result => {
+  holiday = holiday.trim();
+	apiHandler.getImage(encodeURIComponent(holiday.replace("Day", ''))).then(result => {
 
 		const imgPath = './images/'+holiday.replace(/\s/g, '')+'.jpg';
 
@@ -65,7 +64,7 @@ function postTweet(holiday) {
 
 // Create the tweet content with hashtag
 function getTweetString(holiday){
-  return "Today is" + holiday + "! #" + holiday.replace(/\s/g, '');
+  return "Today is " + holiday + "! #" + holiday.replace(/\s/g, '');
 }
 
 // Download image from uri to filename
