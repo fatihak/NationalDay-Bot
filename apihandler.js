@@ -25,7 +25,7 @@ class ApiHandler{
 	// Gets image link from Google Custom Search result for searchQuery
 	getImage(searchQuery) {
 		const url = `${this.GOOGLE_SEARCH_URL}/customsearch/v1?`+
-  				`key=`+ 'AIzaSyA6pL48iY07TkLh0RvloFAHBkyvPP44q-w' + //process.env.BOT_GOOGLE_API_KEY +
+  				`key=`+ process.env.BOT_GOOGLE_API_KEY +
   				`&cx=007533542712610196124:8yk-ubuz0vs`+
   				`&q=${searchQuery}`+
   				`&num=5`+
